@@ -209,5 +209,4 @@ For demo simplicity, some configurations (such as open CORS origins and public S
 
 # Author
 
-Dan Maynez
-Built as a cloud/serverless infrastructure learning project.
+Built by Dan Maynez as a cloud/serverless infrastructure learning project.
