@@ -1,9 +1,8 @@
 # AWS Serverless Demo
 
-Serverless cloud application built using Terraform, AWS Lambda, API Gateway, and S3 static website hosting.
+Serverless cloud application built using Terraform, AWS Lambda, API Gateway, and Amazon S3 static website hosting.
 
-This project demonstrates multiple cloud deployment models and infrastructure-as-code principles while 
-exploring when different AWS services are appropriate for different application requirements.
+This project explores multiple cloud deployment models and infrastructure-as-code principles while demonstrating when different AWS services are appropriate for different application requirements.
 
 ---
 
@@ -41,6 +40,8 @@ AWS Lambda function through API Gateway.
                 │ CloudWatch Logs     │
                 └─────────────────────┘
 
+Browser requests are served through Amazon S3 static hosting. Frontend API calls are routed through API Gateway, which invokes a Python AWS Lambda function. CloudWatch is used for serverless logging and monitoring.
+
 ---
 
 # Technologies Used
@@ -49,6 +50,7 @@ AWS Lambda function through API Gateway.
 - AWS Lambda
 - API Gateway
 - Amazon S3
+- Amazon CloudWatch
 - Python 3.11
 - JavaScript
 - HTML
@@ -59,10 +61,16 @@ AWS Lambda function through API Gateway.
 
 - Serverless Python backend
 - Static website hosting with S3
-- Public HTTP API using API Gateway
+- Public serverless HTTP API using API Gateway
 - Infrastructure managed with Terraform
 - Frontend-to-backend communication using fetch()
 - CORS configuration for browser API access
+
+---
+
+# Demo
+
+![Frontend Demo](screenshots/frontend-demo.png)
 
 ---
 
@@ -123,6 +131,7 @@ Provisions and manages all infrastructure resources.
 
 # Project Structure
 
+```text
 aws-serverless-demo/
 │
 ├── lambda_function.py
@@ -130,6 +139,7 @@ aws-serverless-demo/
 ├── main.tf
 ├── index.html
 └── README.md
+```
 
 ---
 
@@ -168,12 +178,27 @@ terraform apply
 - Static website hosting with S3
 - Cloud architecture tradeoffs
 - Debugging distributed cloud systems
+- Terraform state management and deployment workflows
+
+---
+
+# Security Considerations
+
+This project also introduced several important cloud security concepts:
+
+- IAM role-based permissions between AWS services
+- AWS S3 Block Public Access protections
+- CORS configuration between frontend and backend services
+- Public vs private cloud resource exposure
+- Principle of least privilege considerations for serverless infrastructure
+
+For demo simplicity, some configurations (such as open CORS origins and public S3 access) were intentionally permissive. In production environments, these settings would be more tightly restricted. This project reinforced the importance of security-first thinking when designing cloud infrastructure and public-facing services.
 
 ---
 
 # Future Improvements
 
-- Azure Functions deployment
+- Multi-cloud deployment using Azure Functions
 - Multi-cloud infrastructure
 - CI/CD pipeline integration
 - Custom domain configuration
@@ -184,4 +209,5 @@ terraform apply
 
 # Author
 
+Dan Maynez
 Built as a cloud/serverless infrastructure learning project.
